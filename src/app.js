@@ -1,6 +1,8 @@
 import express from 'express'
 import cors from 'cors' //importa los paquetes cors --permisos de accesos
 import { fileURLToPath } from 'url'
+import clientesRoutes from './routes/clientes.routes.js'
+
 
 import path from 'path'
 
@@ -19,6 +21,7 @@ app.use(express.json()); // Para que interprete los objetos JSON
 app.use(express.urlencoded({extended:true})); //se añade para poder receptar formularios
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 // Rutas
+app.use('/api', clientesRoutes);
 
 
 // Middleware para rutas no encontradas
